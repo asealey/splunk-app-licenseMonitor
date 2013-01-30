@@ -27,7 +27,7 @@
   </row>
   <row>
     <chart>
-      <searchName>bu_dailyIndexGBTotal</searchName>
+      <searchName>dailyIndexGBTotal</searchName>
       <title>Daily Index GB by Index</title>
       <option name="charting.axisLabelsY.majorUnit">50</option>
       <option name="charting.axisTitleY.text">GB Indexed</option>
@@ -44,7 +44,7 @@
   </row>
   <row>
     <chart>
-      <searchString>    index=_internal metrics kb group="per_index_thruput" NOT series=_* NOT series="*summary*" | eval totalMB = kb /1024  | eval totalGB = totalMB /1024 | timechart span=1h sum(totalGB) by series</searchString>
+      <searchName>hourlyIndexGBTotal</searchName>
       <title>Hourly Index GB by Index</title>
       <earliestTime>-1d</earliestTime>
       <option name="charting.axisTitleY.text">GB Indexed</option>
@@ -57,7 +57,7 @@
   </row>
   <row>
     <table>
-      <searchName>bu_dailyIndexGBByHost_7d</searchName>
+      <searchName>dailyIndexGBByHost_7d</searchName>
       <title>Daily Index GB by Host</title>
       <option name="charting.chart.nullValueMode">gaps</option>
       <option name="charting.chart.stackMode">default</option>
@@ -69,7 +69,7 @@
   </row>
   <row>
     <table>
-      <searchName>bu_dailyIndexGbBySourcetype_7d</searchName>
+      <searchName>dailyIndexGbBySourcetype_7d</searchName>
       <title>Daily Index GB by Sourcetype</title>
     </table>
   </row>
