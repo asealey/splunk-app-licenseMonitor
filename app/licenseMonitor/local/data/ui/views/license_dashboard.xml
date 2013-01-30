@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<dashboard refresh="900">
+  <label>License Dashboard</label>
+  <row>
+    <chart>
+      <searchString>index=_internal metrics kb group="per_index_thruput" NOT series=_* NOT series="*summary*" | eval totalMB = kb /1024  | eval totalGB = totalMB /1024 | stats sum(totalGB) as allTotalGB</searchString>
+      <title>Today's Volume</title>
+      <earliestTime>rt-0d@d</earliestTime>
+      <latestTime>rt</latestTime>
+      <option name="charting.chart">radialGauge</option>
+      <option name="charting.chart.rangeValues">[0,85,100,110]</option>
+      <option name="charting.gaugeColors">[0x84e900,0xffe800,0xbf3030]</option>
+      <option name="count">10</option>
+      <option name="displayRowNumbers">true</option>
+    </chart>
+    <chart>
+      <searchString>index=_internal metrics kb group="per_index_thruput" NOT series=_* NOT series="*summary*" | eval totalMB = kb /1024  | eval totalGB = totalMB /1024 | stats sum(totalGB) as allTotalGB</searchString>
+      <title>Yesterday's Volume</title>
+      <earliestTime>-1d@d</earliestTime>
+      <latestTime>@d</latestTime>
+      <option name="charting.chart">radialGauge</option>
+      <option name="charting.chart.rangeValues">[0,85,100,110]</option>
+      <option name="charting.gaugeColors">[0x84e900,0xffe800,0xbf3030]</option>
+      <option name="count">10</option>
+      <option name="displayRowNumbers">true</option>
+    </chart>
+  </row>
+  <row>
+    <chart>
+      <searchName>bu_dailyIndexGBTotal</searchName>
+      <title>Daily Index GB by Index</title>
+      <option name="charting.axisLabelsY.majorUnit">50</option>
+      <option name="charting.axisTitleY.text">GB Indexed</option>
+      <option name="charting.chart">area</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.layout.splitSeries">false</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.secondaryAxisTitle.text"/>
+      <option name="count">50</option>
+      <option name="displayRowNumbers">true</option>
+      <option name="height">300px</option>
+    </chart>
+  </row>
+  <row>
+    <chart>
+      <searchString>    index=_internal metrics kb group="per_index_thruput" NOT series=_* NOT series="*summary*" | eval totalMB = kb /1024  | eval totalGB = totalMB /1024 | timechart span=1h sum(totalGB) by series</searchString>
+      <title>Hourly Index GB by Index</title>
+      <earliestTime>-1d</earliestTime>
+      <option name="charting.axisTitleY.text">GB Indexed</option>
+      <option name="charting.chart">area</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.secondaryAxisTitle.text"/>
+      <option name="count">10</option>
+      <option name="displayRowNumbers">true</option>
+    </chart>
+  </row>
+  <row>
+    <table>
+      <searchName>bu_dailyIndexGBByHost_7d</searchName>
+      <title>Daily Index GB by Host</title>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.layout.splitSeries">false</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="count">50</option>
+      <option name="displayRowNumbers">true</option>
+    </table>
+  </row>
+  <row>
+    <table>
+      <searchName>bu_dailyIndexGbBySourcetype_7d</searchName>
+      <title>Daily Index GB by Sourcetype</title>
+    </table>
+  </row>
+</dashboard>
