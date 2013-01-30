@@ -1,10 +1,12 @@
 <nav>
     <!-- <view name="flashtimeline" default='true' /> -->
     <view name='license_dashboard' default='true' />
+    <!--
     <collection label="Dashboards">
         <view source="unclassified" match="dashboard"/>
         <divider />
     </collection>
+    -->
     <!--
     <collection label="Views">
         <view source="unclassified" />
