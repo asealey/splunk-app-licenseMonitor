@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<dashboard>
+  <label>Missing Forwarders</label>
+  <row>
+    <table>
+      <searchName>MissingForwarder_30day</searchName>
+      <title>Missing Forwarders (30 day)</title>
+    </table>
+  </row>
+</dashboard>
