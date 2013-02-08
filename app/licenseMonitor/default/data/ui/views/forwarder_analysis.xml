@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<dashboard>
+  <label>Forwarder Analysis</label>
+  <row>
+    <table>
+      <searchName>ForwarderAnalysis_7day</searchName>
+      <title>Forwarder Analysis (7 day)</title>
+      <option name="count">50</option>
+      <option name="displayRowNumbers">0</option>
+    </table>
+  </row>
+</dashboard>

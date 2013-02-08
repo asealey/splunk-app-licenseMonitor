@@ -1,7 +1,10 @@
 <nav>
     <!-- <view name="flashtimeline" default='true' /> -->
     <view name='license_dashboard' default='true' />
-    <view name='missing_forwarders' default='false' />
+    <collection label="Forwarder Analysis">
+      <view name='missing_forwarders' />
+      <view name='forwarder_analysis' />
+    </collection>
     <!--
     <collection label="Dashboards">
         <view source="unclassified" match="dashboard"/>
