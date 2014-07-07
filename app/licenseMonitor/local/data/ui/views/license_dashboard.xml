@@ -4,29 +4,11 @@
   <row>
     <chart>
       <title>Today's Volume</title>
-      <searchString>| rest splunk_server=local /services/licenser/pools
-      | rename title AS Pool
-      | search [
-        rest splunk_server=local /services/licenser/groups
-        | search is_active=1
-        | eval stack_id=stack_ids
-        | fields stack_id]
-      | join type=outer stack_id [
-        rest splunk_server=local /services/licenser/stacks
-        | eval stack_id=title
-        | eval stack_quota=quota
-        | fields stack_id stack_quota]
-      | stats sum(used_bytes) as used max(stack_quota) as total
-      | eval usedGB=round(used/1024/1024/1024,3) 
-      | eval totalGB=round(total/1024/1024/1024,3)
-      | eval gauge_base=0
-      | eval gauge_danger=totalGB*0.8
-      | eval gauge_top=totalGB+0.001
-      | gauge usedGB gauge_base gauge_danger totalGB gauge_top</searchString>
+      <searchString>| rest splunk_server=local /services/licenser/pools       | rename title AS Pool       | search [         rest splunk_server=local /services/licenser/groups         | search is_active=1         | eval stack_id=stack_ids         | fields stack_id]       | join type=outer stack_id [         rest splunk_server=local /services/licenser/stacks         | eval stack_id=title         | eval stack_quota=quota         | fields stack_id stack_quota]       | stats sum(used_bytes) as used max(stack_quota) as total       | eval usedGB=round(used/1024/1024/1024,3)        | eval totalGB=round(total/1024/1024/1024,3)       | eval gauge_base=0       | eval gauge_danger=totalGB*0.8       | eval gauge_top=totalGB+0.001       | gauge usedGB gauge_base gauge_danger totalGB gauge_top</searchString>
       <earliestTime>@d</earliestTime>
       <latestTime>now</latestTime>
       <option name="charting.chart">markerGauge</option>
-      <option name="charting.chart.rangeValues">[0,"600","700","1000"]</option>
+      <option name="charting.chart.rangeValues">[0,"700","900","1000"]</option>
       <option name="charting.gaugeColors">[0x84e900,0xffe800,0xbf3030]</option>
       <option name="count">10</option>
       <option name="displayRowNumbers">true</option>
@@ -47,7 +29,7 @@
       <title>Yesterday's Volume</title>
       <searchName>Yesterday's Volume</searchName>
       <option name="charting.chart">markerGauge</option>
-      <option name="charting.chart.rangeValues">[0,"600","700","1000"]</option>
+      <option name="charting.chart.rangeValues">[0,"700","900","1000"]</option>
       <option name="charting.gaugeColors">[0x84e900,0xffe800,0xbf3030]</option>
       <option name="count">10</option>
       <option name="displayRowNumbers">true</option>
