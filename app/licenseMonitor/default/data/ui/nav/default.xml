@@ -17,7 +17,7 @@
         <divider />
     </collection>
     -->
-    <collection label="Searches &amp; Reports">
+    <collection label="Searches and Reports">
         <collection label="Reports">
             <saved source="unclassified" match="report" />
         </collection>
