@@ -1,14 +1,10 @@
 splunk-app-licenseMonitor
 ===========================
 
-# License Monitor app for Splunk #
-
 ## Overview ##
 This is a simple app that pulls together various views I've found to help monitor the license index usage.  It was born out of some frustration with DeploymentMonitor not providing accurate enough information for license usage in 5.0.1.
 
-Additionally, it adds some useful views for finding missing forwarders, that DeploymentMonitor was not able to find.
-
-## Key Functionality: ##
+Additionally, it adds some useful views for finding missing forwarders, that DeploymentMonitor was not able to find.  Key functionality includes:
 
 ### License Monitor ###
 
