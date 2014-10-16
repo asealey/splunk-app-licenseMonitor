@@ -1,8 +1,9 @@
 APP=licenseMonitor
 APP_PKG=$(APP).spl
+DISABLE_MAC_FILES=COPYFILE_DISABLE=true
 
 %.spl:
-	tar -C app -zcv $(APP) > $(APP_PKG)
+	$(DISABLE_MAC_FILES) tar -C app -zcv $(APP) > $(APP_PKG)
 
 	
 all : $(APP_PKG)
