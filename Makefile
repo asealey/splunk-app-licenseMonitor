@@ -3,6 +3,7 @@ APP_PKG=$(APP).spl
 DISABLE_MAC_FILES=COPYFILE_DISABLE=true
 
 %.spl:
+	rm -fr app/$(APP)/local/
 	$(DISABLE_MAC_FILES) tar -C app -zcv $(APP) > $(APP_PKG)
 
 	
